@@ -1,0 +1,26 @@
+.main {
+    margin: 30px;
+    text-align: center;
+}
+
+.rounded-circle {
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+}
+
+.rounded-circle:hover {
+    opacity: 70%;
+}
+
+.computer-click {
+    opacity: 50%;
+}
+
+.badge {
+    font-size: 20px;
+}
+
+#points {
+    margin: 5px;
+}

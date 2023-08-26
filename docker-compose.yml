@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  memory-game-web:
+    image: cpenna/memory-game
+    build: .
+    ports:
+      - "80:80"
+    command: [nginx-debug, '-g', 'daemon off;']
