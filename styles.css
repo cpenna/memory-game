@@ -4,8 +4,8 @@
 }
 
 .rounded-circle {
-    width: 120px;
-    height: 120px;
+    width: 240px;
+    height: 240px;
     cursor: pointer;
 }
 
@@ -18,9 +18,21 @@
 }
 
 .badge {
-    font-size: 20px;
+    font-size: 18px;
 }
 
-#points {
-    margin: 5px;
+@media only screen and (max-width: 992px) {
+    .rounded-circle {
+        width: 180px;
+        height: 180px;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .rounded-circle {
+        width: 120px;
+        height: 120px;
+        cursor: pointer;
+    }
 }
