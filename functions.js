@@ -2,14 +2,12 @@ let userArray = []
 let computerArray = []
 const elementsClass = "rounded-circle"
 const dictionary = {
-    1: "Ana",
-    2: "Caqui",
-    3: "Cesinha",
-    4: "Cintia",
-    5: "Ju",
-    6: "Lari",
-    7: "Sayuri",
-    8: "Will"
+    1: "Cavalier",
+    2: "Dachshund",
+    3: "Dalmatian",
+    4: "Shepherd",
+    5: "Golden",
+    6: "Pug"
 }
 
 const userSequence = (id) => {
@@ -77,7 +75,7 @@ const compare = () => {
     if (userArray.join() === computerArray.join()) {
         computerSequence()
     } else {
-        window.alert("Failed!\nSequência correta: " + idTranslator(computerArray) + "\nSua sequencia: " + idTranslator(userArray))
+        window.alert("Errou!\nSequência correta: " + idTranslator(computerArray) + "\nSua sequencia: " + idTranslator(userArray))
         cleanup()
     }
 }
