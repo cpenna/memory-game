@@ -1,6 +1,7 @@
 let userArray = []
 let computerArray = []
-const elementsClass = "rounded-circle"
+let isComputerTurn = false
+const elementsClass = "memory-card"
 const dictionary = {
     1: "Cavalier",
     2: "Dachshund",
@@ -12,17 +13,26 @@ const dictionary = {
 
 const userSequence = (id) => {
 
-    if (computerArray.length > 0) {
-        userArray.push(Number(id))
-    
-        if (userArray.length < computerArray.length)
-            // Update strokes
-            document.getElementById("strokesLeft").innerText = "Cliques restantes: " + Number(computerArray.length - userArray.length)
-            
-        if (userArray.length == computerArray.length)
-            setTimeout(compare(), 800)
-    } else {
+    if (computerArray.length === 0) {
         window.alert("Clique em Iniciar!")
+        return
+    }
+
+    if (isComputerTurn) {
+        return
+    }
+
+    userArray.push(Number(id))
+    animate(Number(id))
+
+    if (userArray[userArray.length - 1] !== computerArray[userArray.length - 1]) {
+        window.alert("Errou!\nSequência correta: " + idTranslator(computerArray) + "\nSua sequencia: " + idTranslator(userArray))
+        cleanup()
+        return
+    }
+
+    if (userArray.length === computerArray.length) {
+        setTimeout(compare, 800)
     }
 }
 
@@ -36,9 +46,14 @@ const generateNumber = () => {
 
 const computerSequence = () => {
 
+    if (isComputerTurn) {
+        return
+    }
+
     let playListCounter = 0
     let intervalId
 
+    isComputerTurn = true
     generateNumber()
 
     function loop() {
@@ -46,8 +61,12 @@ const computerSequence = () => {
             animate(computerArray[playListCounter])
             playListCounter++
             
-            if (playListCounter >= computerArray.length)
+            if (playListCounter >= computerArray.length) {
                 clearInterval(intervalId)
+                setTimeout(() => {
+                    isComputerTurn = false
+                }, 500)
+            }
         }, 1000)
     }
 
@@ -61,10 +80,10 @@ const animate = (randomNumber) => {
     const color = "computer-click"
     const element = document.getElementById(randomNumber)
 
-    element.className = `rounded-circle ${color} border border-5 border-primary`
+    element.className = `memory-card ${color} border border-5 border-primary`
 
     setTimeout(() => {
-        element.className = "rounded-circle"
+        element.className = "memory-card"
     }, 500)
 }
 
@@ -84,12 +103,11 @@ const cleanup = (type) => {
 
     if (type == "user") {
         userArray = []
-        document.getElementById("strokesLeft").innerText = userArray
     } else {
         userArray = []
         computerArray = []
-        document.getElementById("strokesLeft").innerText = userArray
-        document.getElementById("points").innerText = computerArray
+        isComputerTurn = false
+        document.getElementById("points").innerText = "Hits: 0"
     }
 }
 
@@ -103,3 +121,5 @@ const idTranslator = (array) => {
 
     return users
 }
+
+cleanup()
