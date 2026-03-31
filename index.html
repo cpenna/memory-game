@@ -17,26 +17,35 @@
         <title>Memory Game by cpenna</title>
     </head>
     <body>
-        <div class="container-fluid">
-            <div class="row main">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <button type="button" class="btn btn-primary" onclick="computerSequence()" alt="Iniciar jogo">Iniciar</button>
-                    <button type="button" class="btn btn-secondary" onclick="cleanup()" alt="Reiniciar jogo">Reiniciar</button>
-                    <span id="points"></span>
+        <div class="app-shell">
+            <aside class="sidebar">
+                <section class="score-card">
+                    <p class="score-eyebrow">Pontuacao Atual</p>
+                    <h2 id="scoreTitle">Score de Jogador</h2>
+                    <p id="scoreValue">0</p>
+                </section>
+
+                <section class="player-card">
+                    <label for="playerName" class="field-label">Seu nome</label>
+                    <input id="playerName" type="text" maxlength="24" placeholder="Digite seu nome">
+                </section>
+
+                <section class="action-buttons">
+                    <button type="button" class="game-btn primary-btn" onclick="computerSequence()" alt="Iniciar jogo">Iniciar Jogo</button>
+                    <button type="button" class="game-btn secondary-btn" onclick="cleanup()" alt="Reiniciar jogo">Reiniciar</button>
+                </section>
+            </aside>
+
+            <main class="game-panel">
+                <div class="cards-grid">
+                    <img src="./assets/cavalier.jpg" class="memory-card" id="1" onclick="userSequence(id)">
+                    <img src="./assets/dachshund.jpg" class="memory-card" id="2" onclick="userSequence(id)">
+                    <img src="./assets/dalmatian.jpg" class="memory-card" id="3" onclick="userSequence(id)">
+                    <img src="./assets/german-shepherd.jpg" class="memory-card" id="4" onclick="userSequence(id)">
+                    <img src="./assets/golden-retriever.jpg" class="memory-card" id="5" onclick="userSequence(id)">
+                    <img src="./assets/pug.jpg" class="memory-card" id="6" onclick="userSequence(id)">
                 </div>
-            </div>
-            <div class="row main">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="cards-grid">
-                        <img src="./assets/cavalier.jpg" class="memory-card" id="1" onclick="userSequence(id)">
-                        <img src="./assets/dachshund.jpg" class="memory-card" id="2" onclick="userSequence(id)">
-                        <img src="./assets/dalmatian.jpg" class="memory-card" id="3" onclick="userSequence(id)">
-                        <img src="./assets/german-shepherd.jpg" class="memory-card" id="4" onclick="userSequence(id)">
-                        <img src="./assets/golden-retriever.jpg" class="memory-card" id="5" onclick="userSequence(id)">
-                        <img src="./assets/pug.jpg" class="memory-card" id="6" onclick="userSequence(id)">
-                    </div>
-                </div>
-            </div>
+            </main>
         </div>
     </body>
 </html>

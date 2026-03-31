@@ -2,6 +2,7 @@ let userArray = []
 let computerArray = []
 let isComputerTurn = false
 const elementsClass = "memory-card"
+const defaultPlayerName = "Jogador"
 const dictionary = {
     1: "Cavalier",
     2: "Dachshund",
@@ -71,7 +72,7 @@ const computerSequence = () => {
     }
 
     loop()
-    document.getElementById("points").innerText = "Hits: " + Number(computerArray.length - 1)
+    updateScoreDisplay(Number(computerArray.length - 1))
     cleanup("user")
 }
 
@@ -107,7 +108,7 @@ const cleanup = (type) => {
         userArray = []
         computerArray = []
         isComputerTurn = false
-        document.getElementById("points").innerText = "Hits: 0"
+        updateScoreDisplay(0)
     }
 }
 
@@ -122,4 +123,60 @@ const idTranslator = (array) => {
     return users
 }
 
+const getPlayerName = () => {
+
+    const input = document.getElementById("playerName")
+
+    if (!input) {
+        return defaultPlayerName
+    }
+
+    const name = input.value.trim()
+    return name || defaultPlayerName
+}
+
+const updatePlayerGreeting = () => {
+
+    const name = getPlayerName()
+    const scoreTitleElement = document.getElementById("scoreTitle")
+
+    if (scoreTitleElement) {
+        scoreTitleElement.innerText = "Score de " + name
+    }
+}
+
+const updateScoreDisplay = (score) => {
+
+    const scoreElement = document.getElementById("scoreValue")
+
+    if (scoreElement) {
+        scoreElement.innerText = Number(score)
+    }
+}
+
+const setupPlayerNameEvents = () => {
+
+    const input = document.getElementById("playerName")
+
+    if (!input) {
+        return
+    }
+
+    input.addEventListener("input", updatePlayerGreeting)
+    input.addEventListener("change", updatePlayerGreeting)
+}
+
+const initUI = () => {
+
+    setupPlayerNameEvents()
+    updatePlayerGreeting()
+    updateScoreDisplay(0)
+}
+
 cleanup()
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initUI)
+} else {
+    initUI()
+}
