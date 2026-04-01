@@ -1,8 +1,11 @@
 version: "3.9"
 services:
   memory-game-web:
-    image: cpenna/memory-game
+    image: cpenna/memory-game:codex
     build: .
     ports:
       - "80:80"
-    command: [nginx-debug, '-g', 'daemon off;']
+    environment:
+      - PORT=80
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}

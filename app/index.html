@@ -28,11 +28,16 @@
                 <section class="player-card">
                     <label for="playerName" class="field-label">Seu nome</label>
                     <input id="playerName" type="text" maxlength="24" placeholder="Digite seu nome">
+                    <label for="playerEmail" class="field-label">Seu e-mail</label>
+                    <input id="playerEmail" type="email" maxlength="120" placeholder="Digite seu e-mail">
+                    <p id="saveStatus" class="save-status" aria-live="polite"></p>
                 </section>
 
                 <section class="action-buttons">
                     <button type="button" class="game-btn primary-btn" onclick="computerSequence()" alt="Iniciar jogo">Iniciar Jogo</button>
                     <button type="button" class="game-btn secondary-btn" onclick="cleanup()" alt="Reiniciar jogo">Reiniciar</button>
+                    <button type="button" class="game-btn tertiary-btn" id="savePlayerBtn" alt="Salvar jogador">Salvar</button>
+                    <a class="ranking-link" href="./ranking.html">Ver Ranking</a>
                 </section>
             </aside>
 

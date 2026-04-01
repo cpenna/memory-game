@@ -10,6 +10,30 @@ I'll work on some improvements later this year if I have free time:
 
 Docker Hub image available at: https://hub.docker.com/r/cpenna/memory-game
 
+## New features
+
+- Player profile save (`nome` + `e-mail`) with a `Salvar` button in the sidebar
+- Persistent best score per player in Supabase
+- Ranking page (`/ranking.html`) with sorted scores
+
+## Supabase setup
+
+1. Create a Supabase project.
+2. Run `supabase-schema.sql` in the SQL editor.
+3. Configure environment variables:
+   - `SUPABASE_URL`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+
+## Run with Docker Compose
+
+```bash
+SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... docker-compose up --build
+```
+
+Then open:
+- `http://localhost` (game)
+- `http://localhost/ranking.html` (ranking)
+
 ## Credit for images:
 
 - Golden Retriever, Photo by Cesar Penna

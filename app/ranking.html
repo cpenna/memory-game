@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="./assets/favicon/site.webmanifest">
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <script src="ranking.js"></script>
+        <title>Ranking - Memory Game</title>
+    </head>
+    <body>
+        <div class="ranking-shell">
+            <div class="ranking-card">
+                <div class="ranking-header">
+                    <h1 class="ranking-title">Ranking de Jogadores</h1>
+                    <a class="ranking-link" href="./index.html">Voltar ao Jogo</a>
+                </div>
+                <p id="rankingStatus" class="ranking-empty">Carregando ranking...</p>
+                <table class="ranking-table" id="rankingTable" hidden>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rankingBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
